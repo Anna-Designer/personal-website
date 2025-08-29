@@ -3,7 +3,7 @@
   command = "bundle exec jekyll build"
 
 [build.environment]
-  RUBY_VERSION = "3.1.0"
+  RUBY_VERSION = "3.3.0"
   NODE_VERSION = "18"
 
 # Security headers
