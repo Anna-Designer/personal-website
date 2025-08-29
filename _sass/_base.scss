@@ -1,0 +1,358 @@
+/**
+ * Base Styles - Reset, Typography, and Core Elements
+ * Enhanced for modern design inspired by Rachel How
+ * @author Anna Designer
+ * @version 3.0.0
+ */
+
+// Modern CSS Reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  // Improve text rendering
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Respect user's motion preferences
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $text-dark;
+  background-color: $bg-white;
+  margin: 0;
+  padding: 0;
+
+  // Improve font rendering on all devices
+  font-feature-settings: 'kern' 1;
+  text-size-adjust: 100%;
+
+  // Prevent horizontal overflow
+  overflow-x: hidden;
+}
+
+// Modern Typography Scale with Clean Hierarchy
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  margin: 0 0 $spacing-xl;
+  color: $text-dark;
+  letter-spacing: -0.02em;
+
+  // Improve heading hierarchy for screen readers
+  &:not(:first-child) {
+    margin-top: $spacing-3xl;
+  }
+}
+
+// Responsive typography with modern scaling
+h1 {
+  font-size: clamp($font-size-4xl, 6vw, $font-size-7xl);
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp($font-size-3xl, 5vw, $font-size-5xl);
+  font-weight: $font-weight-bold;
+}
+
+h3 {
+  font-size: clamp($font-size-xl, 3vw, $font-size-3xl);
+  font-weight: $font-weight-semibold;
+}
+
+h4 {
+  font-size: clamp($font-size-lg, 2.5vw, $font-size-2xl);
+  font-weight: $font-weight-semibold;
+}
+
+h5 {
+  font-size: clamp($font-size-base, 2vw, $font-size-xl);
+  font-weight: $font-weight-medium;
+}
+
+h6 {
+  font-size: clamp($font-size-sm, 1.5vw, $font-size-lg);
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+p {
+  margin: 0 0 $spacing-lg;
+  color: $text-medium;
+  line-height: $line-height-relaxed;
+  font-size: $font-size-base;
+
+  &.lead {
+    font-size: $font-size-lg;
+    color: $text-dark;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Enhanced link styles with modern hover effects
+a {
+  color: $text-dark;
+  text-decoration: none;
+  transition: color $transition-fast, opacity $transition-fast;
+
+  // Improve focus indicators
+  &:hover {
+    color: $primary-dark;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+
+  // Skip links for accessibility
+  &.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: $primary-color;
+    color: $bg-white;
+    padding: 8px;
+    z-index: $z-tooltip;
+    text-decoration: none;
+    border-radius: $border-radius-sm;
+
+    &:focus {
+      top: 6px;
+    }
+  }
+}
+// Responsive images with lazy loading support
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+
+  // Lazy loading placeholder
+  &.lazy {
+    opacity: 0;
+    transition: opacity $transition-normal;
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  // Improve loading performance
+  &[loading="lazy"] {
+    content-visibility: auto;
+  }
+}
+
+// Enhanced list styles
+ul, ol {
+  margin: 0 0 $spacing-lg;
+  padding-left: $spacing-xl;
+
+  // Improve nested list spacing
+  ul, ol {
+    margin-top: $spacing-sm;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+li {
+  margin-bottom: $spacing-sm;
+  line-height: $line-height-relaxed;
+}
+
+// Better blockquote styling
+blockquote {
+  margin: $spacing-2xl 0;
+  padding: $spacing-lg $spacing-xl;
+  border-left: 4px solid $primary-color;
+  background-color: $bg-light;
+  font-style: italic;
+  position: relative;
+
+  // Add quotation marks for better semantics
+  &::before {
+    content: "\201C";
+    font-size: $font-size-3xl;
+    position: absolute;
+    top: 0;
+    left: $spacing-md;
+    color: $primary-color;
+    line-height: 1;
+  }
+
+  p {
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  cite {
+    display: block;
+    margin-top: $spacing-md;
+    font-style: normal;
+    font-weight: $font-weight-medium;
+    color: $text-dark;
+
+    &::before {
+      content: "\2014\00a0";
+    }
+  }
+}
+
+// Enhanced code styling
+code {
+  font-family: $font-mono;
+  font-size: 0.9em;
+  background-color: $bg-light;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  border: 1px solid $border-light;
+
+  // Prevent code from breaking layout
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+pre {
+  background-color: $bg-light;
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+  border: 1px solid $border-light;
+
+  code {
+    background: none;
+    padding: 0;
+    border: none;
+    white-space: pre;
+  }
+}
+
+// Enhanced accessibility utilities
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sr-only-focusable {
+  &:active,
+  &:focus {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: inherit !important;
+    margin: inherit !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: inherit !important;
+  }
+}
+
+// Enhanced focus styles for better accessibility
+*:focus {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+// Custom focus styles for interactive elements
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid $primary-color;
+  outline-offset: 1px;
+}
+
+// Better text selection
+::selection {
+  background-color: rgba($primary-color, 0.2);
+  color: $text-dark;
+}
+
+::-moz-selection {
+  background-color: rgba($primary-color, 0.2);
+  color: $text-dark;
+}
+
+// Print styles for better document printing
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: "\00a0(" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: "\00a0(" attr(title) ")";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

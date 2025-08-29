@@ -1,0 +1,125 @@
+en:
+  site:
+    title: "Anna Designer - Freelance Designer & Developer"
+    description: "Professional freelance services delivering outcome-focused solutions"
+  nav:
+    work: "Work"
+    services: "Services"
+    about: "About"
+    faq: "FAQ"
+    contact: "Contact"
+  faq:
+    title: "Frequently Asked Questions"
+    description: "Find answers to common questions about my freelance design and development services."
+    submit_question:
+      title: "Still have questions?"
+      description: "Can't find what you're looking for? Send me your question and I'll get back to you."
+      email_label: "Or email me directly at:"
+      cta: "Ask a Question"
+  home:
+    hero:
+      title: "Hi, I'm Anna Designer"
+      subtitle: "Product Designer & Developer crafting clean, delightful user experiences"
+      cta_primary: "See my work →"
+      cta_secondary: "Get in touch"
+    services:
+      title: "Services & Expertise"
+      web_design: "UI/UX Design"
+      web_dev: "Web Development"
+      branding: "Brand Identity"
+    portfolio:
+      title: "Selected Work"
+      view_case: "View Case Study"
+    process:
+      title: "How I Work"
+      step1: "Discovery"
+      step2: "Strategy"
+      step3: "Design"
+      step4: "Development"
+      step5: "Launch"
+    testimonials:
+      title: "What Clients Say"
+    final_cta:
+      title: "Ready to start your project?"
+      subtitle: "Let's discuss your goals and create something amazing together"
+      primary_btn: "Start Your Project"
+      secondary_btn: "Send Brief"
+    work_showcase:
+      title: "My Work"
+      view_all: "View all projects"
+    thanks:
+      message: "Thanks for dropping by! I hope you find something useful here."
+      signature: "Anna"
+  view_project: "View"
+  footer:
+    rights: "All rights reserved"
+    privacy: "Privacy Policy"
+  post:
+    hey: "Hey, I'm Anna"
+    sidebar_description: "I'm a freelance product designer & developer helping founders ship clean, accessible web products faster."
+    read_next: "Read next"
+  reading_time_label: "Reading Time"
+  category_label: "Category"
+
+ru:
+  site:
+    title: "Анна Дизайнер - Фрилансер Дизайнер и Разработчик"
+    description: "Профессиональные фриланс услуги с фокусом на результат"
+  nav:
+    work: "Работы"
+    services: "Услуги"
+    about: "Обо мне"
+    faq: "Вопросы"
+    contact: "Контакты"
+  faq:
+    title: "Часто задаваемые вопросы"
+    description: "Найдите ответы на распространенные вопросы о моих фриланс услугах дизайна и разработки."
+    submit_question:
+      title: "Остались вопросы?"
+      description: "Не можете найти то, что ищете? Отправьте мне свой вопрос, и я отвечу вам."
+      email_label: "Или напишите мне напрямую:"
+      cta: "Задать вопрос"
+  home:
+    hero:
+      title: "Привет, я Анна Дизайнер"
+      subtitle: "Дизайнер и разработчик продуктов, создающий чистые и приятные пользовательские решения"
+      cta_primary: "Посмотреть работы →"
+      cta_secondary: "Связаться"
+    services:
+      title: "Услуги и экспертиза"
+      web_design: "UI/UX Дизайн"
+      web_dev: "Веб-разработка"
+      branding: "Брендинг"
+    portfolio:
+      title: "Избранные работы"
+      view_case: "Посмотреть кейс"
+    process:
+      title: "Как я работаю"
+      step1: "Исследование"
+      step2: "Стратегия"
+      step3: "Дизайн"
+      step4: "Разработка"
+      step5: "Запуск"
+    testimonials:
+      title: "Что говорят клиенты"
+    final_cta:
+      title: "Готовы начать проект?"
+      subtitle: "Давайте обсудим ваши цели и создадим что-то потрясающее вместе"
+      primary_btn: "Начать проект"
+      secondary_btn: "Отправить бриф"
+    work_showcase:
+      title: "Мои Работы"
+      view_all: "Все проекты"
+    thanks:
+      message: "Спасибо, что заглянули! Надеюсь, здесь вы найдёте что-то полезное."
+      signature: "Анна"
+  view_project: "Смотреть"
+  footer:
+    rights: "Все права защищены"
+    privacy: "Политика конфиденциальности"
+  post:
+    hey: "Привет, я Анна"
+    sidebar_description: "Я фриланс продукт-дизайнер и разработчик, помогаю основателям быстрее запускать чистые и доступные веб‑продукты."
+    read_next: "Читайте далее"
+  reading_time_label: "Время чтения"
+  category_label: "Категория"

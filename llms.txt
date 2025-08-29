@@ -1,0 +1,143 @@
+# Anna Designer - Personal Portfolio Website
+
+> A modern, responsive Jekyll portfolio website template for freelance designers and developers. Features multi-language support (English/Russian), SEO optimization, blog functionality, project showcases, and a clean, professional design.
+
+This repository contains a complete Jekyll-based personal portfolio website with the following key features:
+- Multi-language support (English and Russian)
+- Responsive design optimized for all devices
+- SEO optimization with meta tags and structured data
+- Portfolio showcase with modal galleries
+- Blog functionality with categorized posts
+- Project case studies and work examples
+- Contact forms with validation
+- Modern UI with smooth animations
+- Fast loading with optimized assets
+
+## Documentation
+
+- [README](README.md): Complete project documentation, installation guide, and usage instructions
+- [Project Structure](README.md): Detailed explanation of all directories and files
+
+## Configuration
+
+- [Main Configuration](_config.yml): Primary Jekyll configuration file
+- [Netlify Configuration](netlify.toml): Deployment configuration for Netlify
+- [Redirects](_redirects): URL redirection rules
+- [Gemfile](Gemfile): Ruby dependencies and gems used in the project
+- [Gemfile.lock](Gemfile.lock): Locked dependency versions
+
+## Content Pages
+
+- [Homepage](index.md): Main landing page content
+- [About Page](about.md): Personal introduction and background
+- [Work Page](work.md): Portfolio and services overview
+- [Contacts Page](contacts.md): Contact information and form details
+- [FAQ Page](faq.md): Frequently asked questions
+- [Success Page](success.md): Success stories and testimonials
+- [Example Reels](example-reels.html): Showcase of design examples and reels
+- [Blog Page](blog.html): Blog posts listing and navigation
+
+## Russian Content
+
+- [Russian Homepage](ru/index.md): Russian version of the homepage
+- [Russian About](ru/about.md): Russian about page
+- [Russian Work](ru/work.md): Russian work and portfolio page
+- [Russian Contacts](ru/contacts.md): Russian contact page
+- [Russian FAQ](ru/faq.md): Russian FAQ page
+- [Russian Blog](ru/blog.html): Russian blog page
+
+## Blog Posts
+
+- [Blog Posts Directory](_posts/): Collection of English blog articles
+- [Russian Blog Posts](_posts_ru/): Russian translations of blog articles
+- [Design Systems Post](_posts/2024-12-15-design-systems-that-people-actually-use.md): Guide to effective design systems
+- [AI Designer Post](_posts/2024-12-20-ai-as-your-junior-designer.md): Using AI tools in design workflow
+- [Case Studies Post](_posts/2024-12-25-case-studies-that-convert.md): Creating compelling case studies
+- [Senior Developer Guide](_posts/2025-01-05-the-80-20-guide-to-becoming-a-senior-developer.md): Career development guide
+- [Code Reviews Post](_posts/2025-01-10-fast-kind-useful-code-reviews.md): Best practices for code reviews
+- [Service Design Post](_posts/2025-01-15-designing-reliable-services.md): Designing reliable digital services
+- [Freelance Pricing](_posts/2025-01-20-freelance-pricing-that-survives-scope-creep.md): Pricing strategies for freelancers
+- [Lead Generation](_posts/2025-01-25-90-day-plan-to-build-freelance-lead-machine.md): Building a freelance lead generation system
+- [Business Operations](_posts/2025-01-30-run-your-one-person-business-like-a-firm.md): Managing a solo business operation
+
+## Project Case Studies
+
+- [Projects Directory](_projects/): Collection of project case studies
+- [Russian Projects](_projects_ru/): Russian translations of project case studies
+- [Marketplace Branding](_projects/2024-12-01-marketplace-branding.md): Marketplace platform branding project
+- [E-commerce Mobile Flow](_projects/2024-12-10-ecommerce-mobile-flow.md): Mobile shopping experience redesign
+- [SaaS Dashboard](_projects/2024-12-20-saas-dashboard-redesign.md): SaaS application dashboard redesign
+
+## Data Files
+
+- [Translations](_data/translations.yml): Multi-language text strings and labels
+- [Navigation](_data/navigation.yml): Site navigation structure
+- [FAQ Data](_data/faq.yml): FAQ content and structure
+- [Pinned Projects](_data/pinned-projects.yml): Featured project configuration
+
+## Templates and Layouts
+
+- [Default Layout](_layouts/default.html): Base HTML template for all pages
+- [Home Layout](_layouts/home.html): Homepage-specific layout
+- [Page Layout](_layouts/page.html): Standard page layout template
+- [About Layout](_layouts/about.html): About page layout
+- [Post Layout](_layouts/post.html): Blog post layout template
+- [Project Layout](_layouts/project.html): Project case study layout
+
+## Components
+
+- [Head Component](_includes/head.html): HTML head with meta tags and SEO
+- [Header Component](_includes/header.html): Site navigation header
+- [Hero Component](_includes/hero.html): Homepage hero section
+- [Services Component](_includes/services.html): Services offered section
+- [Process Component](_includes/process.html): Work process explanation
+- [Resources Component](_includes/resources.html): Resources and tools section
+- [Work Showcase](_includes/work-showcase.html): Portfolio work display component
+- [Language Switcher](_includes/language-switcher.html): Language switching component
+- [Contact Form](_includes/contact-form.html): Main contact form component
+- [Simple Contact Form](_includes/contact-form-simple.html): Simplified contact form
+- [Reading Time](_includes/reading-time.html): Blog post reading time calculator
+- [Thanks Bottom](_includes/thanks-bottom.html): Thank you section component
+- [Final CTA](_includes/final-cta.html): Final call-to-action section
+- [Footer Component](_includes/footer.html): Site footer
+- [SEO Component](_includes/seo.html): SEO optimization includes
+
+## Styles
+
+- [Main Stylesheet](assets/css/main.scss): Primary SCSS file that imports all styles
+- [Variables](_sass/_variables.scss): Design system variables and colors
+- [Base Styles](_sass/_base.scss): Base HTML element styles
+- [Layout Styles](_sass/_layout.scss): Page layout and structure styles
+- [Component Styles](_sass/_components.scss): Individual component styles
+- [Critical Styles](_sass/_critical.scss): Above-the-fold critical CSS
+- [Header Styles](_sass/_header-modern.scss): Modern header component styles
+- [Hero Styles](_sass/_hero-modern.scss): Modern hero section styles
+- [Services Styles](_sass/_services-modern.scss): Services section styles
+- [Resources Styles](_sass/_resources-modern.scss): Resources section styles
+- [Work Styles](_sass/_work-modern.scss): Work/portfolio section styles
+- [Posts Styles](_sass/_posts-modern.scss): Blog posts styling
+- [Thanks Bottom Styles](_sass/_thanks-bottom.scss): Thanks section styling
+- [Performance Styles](_sass/_performance.scss): Performance optimization styles
+- [Responsive Styles](_sass/_responsive.scss): Mobile and responsive design styles
+
+## Assets
+
+- [Main JavaScript](assets/js/main.js): Primary JavaScript functionality
+- [Project JavaScript](assets/js/projects.js): Project showcase functionality
+- [JavaScript Components](assets/js/components/): Reusable JavaScript components
+- [JavaScript Core](assets/js/core/): Core JavaScript utilities
+- [JavaScript Modules](assets/js/modules/): Modular JavaScript functionality
+- [JavaScript Pages](assets/js/pages/): Page-specific JavaScript
+- [Images Directory](assets/images/): Logo, portfolio images, testimonials, and other visual assets
+- [Avatar Image](assets/images/avatar.png): Profile avatar image
+- [Logo Files](assets/images/logo.svg): Main logo in SVG format
+- [White Logo](assets/images/logo-white.svg): White version of logo
+- [Background Images](assets/images/bgs/): Background image assets
+- [Icons Directory](assets/icons/): Icon assets and favicons
+
+## Optional
+
+- [Sitemap](sitemap.xml): XML sitemap for search engines
+- [Robots.txt](robots.txt): Instructions for web crawlers
+- [Site Directory](_site/): Generated static site files (build output)</content>
+<parameter name="filePath">e:\Projects\Anna Designer\personal-website\llms.txt

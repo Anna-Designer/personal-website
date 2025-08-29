@@ -1,0 +1,51 @@
+<form name="contact" method="POST" netlify netlify-honeypot="bot-field" action="/success/" class="contact-form contact-form-simple" id="contact-form">
+  <!-- Hidden field for spam protection -->
+  <input type="hidden" name="bot-field" />
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="name">My name is</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="company">I work at</label>
+      <input type="text" id="company" name="company">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">My email is</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="services">I'm looking for:</label>
+    <select id="services" name="services" required>
+      <option value="">Select a service</option>
+      <option value="ui-ux-design">UI/UX Design</option>
+      <option value="web-design">Web Design</option>
+      <option value="branding">Brand Identity</option>
+      <option value="consulting">Design Consulting</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="budget">My budget range is</label>
+    <select id="budget" name="budget">
+      <option value="">Select budget range</option>
+      <option value="2k-5k">USD $2,000 - $5,000</option>
+      <option value="5k-10k">USD $5,001 - $10,000</option>
+      <option value="10k-plus">USD $10,001 and up</option>
+      <option value="discuss">Let's discuss</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="message">More details about the project (brief summary, deadline etc)</label>
+    <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Get in touch</button>
+</form>

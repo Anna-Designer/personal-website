@@ -1,0 +1,26 @@
+en:
+  - title: "SaaS Dashboard Redesign"
+    image: "/assets/images/bgs/starry_bg.png"
+    url: "/projects/saas-dashboard-redesign"
+    chips: ["SaaS", "Analytics", "Data Visualization"]
+  - title: "E-commerce Mobile Flow"
+    image: "/assets/images/bgs/starry_bg.png"
+    url: "/projects/ecommerce-mobile-flow"
+    chips: ["E-Commerce", "Mobile", "UX"]
+  - title: "Marketplace Branding"
+    image: "/assets/images/bgs/starry_bg.png"
+    url: "/projects/marketplace-branding"
+    chips: ["Branding", "Marketplace", "Identity"]
+ru:
+  - title: "Редизайн SaaS дашборда"
+    image: "/assets/images/bgs/starry_bg.png"
+    url: "/ru/projects/saas-dashboard-redesign"
+    chips: ["SaaS", "Аналитика", "Визуализация"]
+  - title: "Мобильный поток E-commerce"
+    image: "/assets/images/bgs/starry_bg.png"
+    url: "/ru/projects/ecommerce-mobile-flow"
+    chips: ["E-Commerce", "Мобильное", "UX"]
+  - title: "Брендинг маркетплейса"
+    image: "/assets/images/bgs/starry_bg.png"
+    url: "/ru/projects/marketplace-branding"
+    chips: ["Брендинг", "Маркетплейс", "Идентичность"]

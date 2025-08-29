@@ -1,0 +1,90 @@
+<!-- SEO and Performance Optimizations -->
+{% comment %}
+  Structured data for different page types
+  Optimized for search engines and social media
+{% endcomment %}
+
+{% if page.layout == 'home' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.author | jsonify }}",
+    "jobTitle": "Freelance Designer & Developer",
+    "description": "{{ site.description | jsonify }}",
+    "url": "{{ site.url | absolute_url }}",
+    "sameAs": [
+      {% assign social_links = '' | split: '' %}
+      {% if site.social.linkedin %}{% assign social_links = social_links | push: site.social.linkedin %}{% endif %}
+      {% if site.social.github %}{% assign social_links = social_links | push: site.social.github %}{% endif %}
+      {% if site.social.behance %}{% assign social_links = social_links | push: site.social.behance %}{% endif %}
+      {% for link in social_links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+    ],
+    "knowsAbout": [
+      "Web Design",
+      "Web Development",
+      "UI/UX Design",
+      "Brand Identity",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Figma"
+    ]
+  }
+  </script>
+{% elsif page.layout == 'post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title | jsonify }}",
+    "description": "{{ page.description | default: page.excerpt | strip_html | truncate: 160 | jsonify }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author | jsonify }}"
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "url": "{{ page.url | absolute_url }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    }
+  }
+  </script>
+{% elsif page.layout == 'project' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "{{ page.title | jsonify }}",
+    "description": "{{ page.description | default: page.excerpt | strip_html | truncate: 160 | jsonify }}",
+    "creator": {
+      "@type": "Person",
+      "name": "{{ site.author | jsonify }}"
+    },
+    "dateCreated": "{{ page.date | date_to_xmlschema }}",
+    "url": "{{ page.url | absolute_url }}"
+  }
+  </script>
+{% endif %}
+
+<!-- Critical resource hints for performance -->
+{% comment %}
+  Remove font preconnects from here as they're handled in head.html
+  Focus on analytics and other external resources
+{% endcomment %}
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+
+<!-- Additional SEO meta tags -->
+{% if page.robots %}
+<meta name="robots" content="{{ page.robots }}">
+{% else %}
+<meta name="robots" content="index, follow">
+{% endif %}
+
+{% if page.keywords %}
+<meta name="keywords" content="{{ page.keywords | join: ', ' }}">
+{% endif %}

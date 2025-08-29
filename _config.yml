@@ -1,0 +1,137 @@
+# Site settings
+baseurl: ""
+url: "https://anna-designer.me"
+email: hello@anna-designer.me
+help_email: help@anna-designer.me
+
+# Multi-language configuration
+default_lang: "en"
+languages: ["en", "ru"]
+exclude_from_localizations: ["assets", "admin"]
+
+# Language-specific content
+locales:
+  en:
+    title: "Anna Designer - Freelance Designer & Developer"
+    description: "Professional freelance web design and development services. Creating digital experiences that convert visitors into customers."
+    author: "Anna Designer"
+    nav:
+      work: "Work"
+      services: "Services"
+      about: "About"
+      faq: "FAQ"
+      contact: "Contact"
+      blog: "Blog"
+  ru:
+    title: "Анна Дизайнер - Фриланс Дизайнер и Разработчик"
+    description: "Профессиональные услуги веб-дизайна и разработки. Создаю цифровые решения, которые конвертируют посетителей в клиентов."
+    author: "Анна Дизайнер"
+    nav:
+      work: "Работы"
+      services: "Услуги"
+      about: "Обо мне"
+      faq: "Вопросы"
+      contact: "Контакты"
+      blog: "Блог"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Collections
+collections:
+  posts:
+    output: true
+  posts_ru:
+    output: true
+  projects:
+    output: true
+  projects_ru:
+    output: true
+
+# Defaults for content with language-specific settings
+defaults:
+  # English posts
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      permalink: "/blog/:title/"
+  # Russian posts
+  - scope:
+      path: "_posts_ru"
+      type: posts
+    values:
+      layout: post
+      permalink: "/ru/blog/:title/"
+  # English projects
+  - scope:
+      path: "_projects"
+      type: projects
+    values:
+      layout: project
+      permalink: "/projects/:title/"
+  # Russian projects
+  - scope:
+      path: "_projects_ru"
+      type: projects
+    values:
+      layout: project
+      permalink: "/ru/projects/:title/"
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Navigation structure (uses language-specific labels from locales)
+navigation:
+  primary:
+    - key: "work"
+      url: "/work"
+    - key: "services"
+      url: "#services"
+    - key: "about"
+      url: "/about"
+    - key: "faq"
+      url: "/faq"
+    - key: "contact"
+      url: "/contacts"
+      class: "cta-button"
+
+# SEO and metadata
+logo: "/assets/images/logo.png"
+social_image: "/assets/images/social-share.jpg"
+
+# Social links
+social:
+  linkedin: "https://linkedin.com/in/anna-designer"
+  github: "https://github.com/anna-designer"
+  behance: "https://behance.net/anna-designer"
+  twitter: "https://twitter.com/anna_designer"
+  instagram: "https://instagram.com/anna.designer"
+  email: "mailto:anna.designer@example.com"
+
+# Analytics (optional)
+google_analytics: "GA_TRACKING_ID"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - .sass-cache/
+  - _site/
+  - README.md
+  - llms.txt

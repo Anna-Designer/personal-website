@@ -1,0 +1,53 @@
+<!-- Language Switcher Component -->
+<div class="language-switcher">
+  <!-- Current Language Button -->
+  <button class="language-switcher-btn"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-label="Select language">
+    <span class="language-icon">🌐</span>
+    <span class="language-text">{% if page.lang == 'ru' %}RUS{% else %}ENG{% endif %}</span>
+  </button>
+
+  <!-- Language Options Dropdown -->
+  <div class="language-dropdown" role="menu">
+    {% assign current_page = page.url %}
+    {% if page.lang == 'ru' %}
+      <!-- Currently on Russian page, show English option -->
+      {% assign english_url = current_page | replace: '/ru/', '/' | replace: '/ru', '/' %}
+      {% if english_url == '//' %}{% assign english_url = '/' %}{% endif %}
+      <a href="{{ english_url }}"
+         class="language-option{% if page.lang == 'en' %} active{% endif %}"
+         role="menuitem"
+         data-lang="en">
+        ENG
+      </a>
+      <a href="{{ current_page }}"
+         class="language-option active"
+         role="menuitem"
+         data-lang="ru">
+        RUS
+      </a>
+    {% else %}
+      <!-- Currently on English page, show Russian option -->
+      {% assign russian_url = current_page %}
+      {% if current_page == '/' %}
+        {% assign russian_url = '/ru/' %}
+      {% else %}
+        {% assign russian_url = '/ru' | append: current_page %}
+      {% endif %}
+      <a href="{{ current_page }}"
+         class="language-option active"
+         role="menuitem"
+         data-lang="en">
+        ENG
+      </a>
+      <a href="{{ russian_url }}"
+         class="language-option{% if page.lang == 'ru' %} active{% endif %}"
+         role="menuitem"
+         data-lang="ru">
+        RUS
+      </a>
+    {% endif %}
+  </div>
+</div>

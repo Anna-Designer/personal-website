@@ -1,0 +1,173 @@
+/**
+ * Performance Optimizations
+ * CSS optimizations for Core Web Vitals and mobile performance
+ * @author Anna Designer
+ * @version 2.1.0
+ */
+
+// =============================================================================
+// CRITICAL CSS UTILITIES
+// =============================================================================
+
+// Optimize off-screen content rendering
+.section-lazy {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
+// Skip link for accessibility
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 4px;
+
+  &:focus {
+    top: 6px;
+  }
+}
+
+// =============================================================================
+// CRITICAL LOADING STATES
+// =============================================================================
+
+// Loading skeleton for better perceived performance
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Image loading optimization
+img {
+  // Prevent layout shifts
+  max-width: 100%;
+  height: auto;
+
+  // Modern browsers: aspect-ratio support
+  &[width][height] {
+    aspect-ratio: attr(width) / attr(height);
+  }
+}
+
+// =============================================================================
+// REDUCED MOTION SUPPORT
+// =============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .skeleton {
+    animation: none;
+    background: #f0f0f0;
+  }
+
+  // Disable parallax effects
+  .parallax {
+    transform: none !important;
+  }
+}
+
+// =============================================================================
+// HIGH CONTRAST SUPPORT
+// =============================================================================
+
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+    background-color: transparent;
+  }
+
+  .card {
+    border: 1px solid currentColor;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  // Improve focus indicators
+  :focus {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+// =============================================================================
+// PRINT STYLES
+// =============================================================================
+
+@media print {
+  // Hide non-essential elements
+  .mobile-menu-btn,
+  .mobile-nav-overlay,
+  .social-links,
+  .hero-cta {
+    display: none !important;
+  }
+
+  // Optimize text for print
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+  }
+
+  // Ensure links are visible
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+}
+
+// =============================================================================
+// DARK MODE SUPPORT
+// =============================================================================
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --border-color: #333333;
+    --accent-color: #4f9cf9;
+  }
+
+  // Apply dark mode styles when implemented
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  .card {
+    background-color: #2a2a2a;
+    border-color: var(--border-color);
+  }
+
+  // Improve images in dark mode
+  img {
+    opacity: 0.9;
+  }
+}

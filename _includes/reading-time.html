@@ -1,0 +1,8 @@
+{% assign words = include.content | number_of_words %}
+{% assign minutes_float = words | divided_by: 160.0 %}
+{% assign minutes = minutes_float | ceil %}
+{% if include.lang == 'ru' %}
+  {{ minutes }} мин чтения
+{% else %}
+  {{ minutes }} min read
+{% endif %}

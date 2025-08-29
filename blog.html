@@ -1,0 +1,99 @@
+---
+layout: page
+title: "Blog"
+permalink: /blog/
+blog_page: true
+description: "Latest articles: design systems, accessibility, performance, workflow, freelancing."
+---
+
+<section id="blog-app" class="blog-app">
+  <div class="container blog-container-full">
+    <div class="blog-layout">
+      <div class="blog-main">
+        <h1 class="blog-heading">Latest Posts</h1>
+        <nav class="blog-category-bar" aria-label="Categories">
+          <ul class="category-list">
+            <li><a href="/blog/" data-cat="all" class="category-link active">All</a></li>
+            <li><a href="/blog/?category=design" data-cat="design" class="category-link">Design</a></li>
+            <li><a href="/blog/?category=development" data-cat="development" class="category-link">Development</a></li>
+            <li><a href="/blog/?category=freelance" data-cat="freelance" class="category-link">Freelance</a></li>
+          </ul>
+        </nav>
+  <div id="posts-grid" class="post-grid" aria-live="polite"></div>
+        <div id="pagination" class="pagination" aria-label="Pagination"></div>
+        <div id="no-results" class="no-results" hidden>No posts match your search.</div>
+      </div>
+      <aside class="blog-sidebar" aria-label="Search and filters">
+        <div class="blog-search">
+          <label for="blog-search-input" class="visually-hidden">Search posts</label>
+          <input type="search" id="blog-search-input" placeholder="Search posts..." autocomplete="off" aria-label="Search posts" />
+        </div>
+        <div class="blog-filters">
+          <h3 class="filters-heading">Tags</h3>
+          <div id="tag-filters" class="tag-filter-list" role="group" aria-label="Filter by tags"></div>
+          <button type="button" id="clear-filters" class="clear-filters-btn" hidden>Clear filters</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% comment %}Generate JSON for posts - using new collections structure{% endcomment %}
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% if current_lang == 'ru' %}
+  {% assign posts_sorted = site.posts_ru | default: empty | sort: 'date' | reverse %}
+{% else %}
+  {% assign posts_sorted = site.posts | default: empty | sort: 'date' | reverse %}
+{% endif %}
+<script id="posts-data" type="application/json">[
+{%- for post in posts_sorted -%}
+{% assign words = post.content | number_of_words %}{% assign minutes_float = words | divided_by: 160.0 %}{% assign minutes = minutes_float | ceil %}
+{"title":{{ post.title | jsonify }},"url":{{ post.url | jsonify }},"date":{{ post.date | date_to_xmlschema | jsonify }},"date_formatted":{{ post.date | date: "%b %-d, %Y" | jsonify }},"tags":{{ post.tags | jsonify }},"category":{{ post.categories | first | jsonify }},"image":{{ post.image | default: '/assets/images/bgs/starry_bg.png' | jsonify }},"reading_time":{{ minutes | jsonify }}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]</script>
+<script>
+// Parse embedded JSON into global variable
+window.BLOG_POSTS = JSON.parse(document.getElementById('posts-data').textContent);
+</script>
+<script>
+// Activate category link based on URL param
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('category');
+  const links = document.querySelectorAll('.blog-category-bar .category-link');
+  links.forEach(l=>l.classList.remove('active'));
+  if(!cat){
+    const all = document.querySelector('.blog-category-bar [data-cat="all"]');
+    if(all) all.classList.add('active');
+  } else {
+    const match = document.querySelector(`.blog-category-bar .category-link[data-cat="${cat.toLowerCase()}"]`);
+    if(match) match.classList.add('active');
+  }
+  // Click handling to update URL and trigger category filtering without page reload
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const newCat = link.dataset.cat;
+      links.forEach(l=>l.classList.remove('active'));
+      link.classList.add('active');
+      const url = new URL(window.location.href);
+      if(newCat === 'all'){ url.searchParams.delete('category'); }
+      else { url.searchParams.set('category', newCat); }
+      history.replaceState(null,'', url.toString());
+      // Trigger blog.js to pick up new category
+      const event = new Event('categoryChange');
+      document.dispatchEvent(event);
+    });
+  });
+  document.addEventListener('categoryChange', ()=>{
+    const params2 = new URLSearchParams(window.location.search);
+    const cat2 = params2.get('category');
+    if(window.BLOG_POSTS){
+      // Access internal state in blog.js by re-running filter if exposed; fallback simple reload
+      if(window.applyBlogCategory){ window.applyBlogCategory(cat2); }
+      else { window.location.reload(); }
+    }
+  });
+})();
+</script>
+

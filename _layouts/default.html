@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.default_lang | default: 'en' }}">
+  {% include head.html %}
+  <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    {% include header.html %}
+
+    <main id="main-content" role="main" aria-label="Main content">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    {% comment %}
+      Optimized JavaScript loading with proper error handling
+    {% endcomment %}
+    <script>
+      // Performance monitoring
+      if ('performance' in window && 'getEntriesByType' in performance) {
+        window.addEventListener('load', function() {
+          // Track Core Web Vitals
+          setTimeout(function() {
+            var navigation = performance.getEntriesByType('navigation')[0];
+            if (navigation) {
+              console.log('Page load time:', navigation.loadEventEnd - navigation.loadEventStart);
+            }
+          }, 1000);
+        });
+      }
+    </script>
+
+    <script src="{{ '/assets/js/core/utils.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+
+    {% if page.blog_page %}
+      <script src="{{ '/assets/js/pages/blog.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+    {% endif %}
+
+    {% if page.contact_form %}
+      <script src="{{ '/assets/js/pages/contact-form.js' | relative_url }}" defer></script>
+    {% endif %}
+
+    {% comment %}
+      Analytics with proper error handling and privacy considerations
+    {% endcomment %}
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}', {
+          anonymize_ip: true,
+          cookie_flags: 'SameSite=None;Secure'
+        });
+      </script>
+    {% endif %}
+  </body>
+</html>

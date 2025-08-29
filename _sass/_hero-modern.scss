@@ -1,0 +1,157 @@
+/**
+ * Modern Hero Section - Inspired by Rachel How's clean design
+ * @author Anna Designer
+ */
+
+// =============================================================================
+// HERO SECTION
+// =============================================================================
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: $spacing-5xl 0;
+  background: $bg-white;
+  position: relative;
+
+  .container {
+    width: 100%;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-text {
+    margin-bottom: $spacing-3xl;
+  }
+
+  .hero-title {
+    font-size: $font-size-6xl;
+    font-weight: $font-weight-bold;
+    color: $text-dark;
+    line-height: $line-height-tight;
+    margin-bottom: $spacing-lg;
+    letter-spacing: -0.02em;
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: $font-size-5xl;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: $font-size-xl;
+    color: $text-medium;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-md;
+    font-weight: $font-weight-normal;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  .hero-description {
+    font-size: $font-size-lg;
+    color: $text-light;
+    margin-bottom: 0;
+    font-weight: $font-weight-normal;
+  }
+
+  .hero-services {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-3xl;
+    flex-wrap: wrap;
+
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: $spacing-sm $spacing-lg;
+      background: $bg-light;
+      color: $text-medium;
+      border-radius: $border-radius-xl;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      border: 1px solid $border-light;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: $primary-color;
+        color: $bg-white;
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-lg;
+    flex-wrap: wrap;
+
+    .btn {
+      min-width: 160px;
+      font-size: $font-size-base;
+      padding: $spacing-md $spacing-xl;
+
+      @media (max-width: $breakpoint-sm) {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// HERO ANIMATION
+// =============================================================================
+
+.hero {
+  .hero-content {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .hero-avatar {
+    animation: fadeInUp 0.8s ease-out 0.05s both;
+  }
+
+  .hero-title {
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+  }
+
+  .hero-subtitle {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+
+  .hero-description {
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+  }
+
+  .hero-services {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  .hero-cta {
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

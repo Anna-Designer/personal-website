@@ -1,0 +1,59 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {% for page in site.pages %}
+    {% unless page.exclude_from_sitemap %}
+      <url>
+        <loc>{{ site.url }}{{ page.url }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>{% if page.url == '/' %}1.0{% elsif page.url == '/ru/' %}0.9{% else %}0.7{% endif %}</priority>
+        {% if page.lang == 'en' %}
+          <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}/ru{{ page.url }}" />
+          <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}" />
+        {% elsif page.lang == 'ru' %}
+          <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url | remove: '/ru' }}" />
+          <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ page.url }}" />
+        {% endif %}
+      </url>
+    {% endunless %}
+  {% endfor %}
+
+  {% for post in site.posts %}
+    {% unless post.exclude_from_sitemap %}
+      <url>
+        <loc>{{ site.url }}{{ post.url }}</loc>
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        {% if post.lang == 'en' %}
+          <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}/ru{{ post.url }}" />
+          <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ post.url }}" />
+        {% elsif post.lang == 'ru' %}
+          <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ post.url | remove: '/ru' }}" />
+          <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ post.url }}" />
+        {% endif %}
+      </url>
+    {% endunless %}
+  {% endfor %}
+
+  {% for project in site.projects %}
+    {% unless project.exclude_from_sitemap %}
+      <url>
+        <loc>{{ site.url }}{{ project.url }}</loc>
+        <lastmod>{{ project.date | default: site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        {% if project.lang == 'en' %}
+          <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}/ru{{ project.url }}" />
+          <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ project.url }}" />
+        {% elsif project.lang == 'ru' %}
+          <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ project.url | remove: '/ru' }}" />
+          <xhtml:link rel="alternate" hreflang="ru" href="{{ site.url }}{{ project.url }}" />
+        {% endif %}
+      </url>
+    {% endunless %}
+  {% endfor %}
+</urlset>

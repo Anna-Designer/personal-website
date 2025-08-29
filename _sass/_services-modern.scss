@@ -1,0 +1,217 @@
+/**
+ * Modern Services Section - Inspired by Rachel How's design
+ * @author Anna Designer
+ */
+
+// =============================================================================
+// SERVICES SECTION
+// =============================================================================
+
+.services-modern {
+  padding: $spacing-5xl 0;
+  background: $bg-white;
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto $spacing-2xl;
+
+    h2 {
+      font-size: $font-size-4xl;
+      font-weight: $font-weight-bold;
+      color: $text-dark;
+      margin-bottom: $spacing-lg;
+      line-height: $line-height-tight;
+
+      @media (max-width: $breakpoint-md) {
+        font-size: $font-size-3xl;
+      }
+    }
+
+    p {
+      font-size: $font-size-lg;
+      color: $text-medium;
+      line-height: $line-height-relaxed;
+      margin: 0;
+    }
+  }
+
+  .services-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: $spacing-3xl;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: $spacing-2xl;
+    }
+  }
+
+  .service-card-modern {
+    background: $bg-white;
+    border: 1px solid $border-light;
+    border-radius: $border-radius-xl;
+    padding: $spacing-3xl;
+    transition: all $transition-normal;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-xl;
+      border-color: $primary-color;
+
+      .service-cta {
+        color: $primary-color;
+
+        span {
+          transform: translateX(4px);
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      padding: $spacing-2xl;
+    }
+  }
+
+  .service-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-header {
+    margin-bottom: $spacing-xl;
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: $bg-light;
+      border-radius: $border-radius-lg;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: $spacing-lg;
+      color: $primary-color;
+      transition: all $transition-normal;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    h3 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      color: $text-dark;
+      margin: 0;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+  }
+
+  .service-content > p {
+    font-size: $font-size-base;
+    color: $text-medium;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-xl;
+  }
+
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $spacing-xl;
+    flex-grow: 1;
+
+    li {
+      padding: $spacing-sm 0;
+      color: $text-medium;
+      font-size: $font-size-sm;
+      position: relative;
+      padding-left: $spacing-lg;
+
+      &:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: $primary-color;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-sm;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $border-light;
+        padding-bottom: $spacing-sm;
+        margin-bottom: $spacing-sm;
+      }
+    }
+  }
+
+  .service-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $text-dark;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+    font-size: $font-size-base;
+    transition: all $transition-fast;
+    margin-top: auto;
+
+    span {
+      transition: transform $transition-fast;
+      font-size: $font-size-lg;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+// =============================================================================
+// SERVICE CARD HOVER EFFECTS
+// =============================================================================
+
+.service-card-modern {
+  &:hover {
+    .service-icon {
+      background: $primary-color;
+      color: $bg-white;
+      transform: scale(1.05);
+    }
+  }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: $breakpoint-sm) {
+  .services-modern {
+    .services-grid-modern {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+    }
+
+    .service-card-modern {
+      padding: $spacing-xl;
+    }
+
+    .section-header {
+      margin-bottom: $spacing-3xl;
+
+      h2 {
+        font-size: $font-size-2xl;
+      }
+
+      p {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+/**
+ * Modern Resources Section - Inspired by Rachel How
+ * @author Anna Designer
+ */
+
+// =============================================================================
+// RESOURCES SECTION
+// =============================================================================
+
+ .resources-modern {
+  padding: $spacing-5xl 0;
+  background: $bg-light;
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto $spacing-2xl;
+
+    #textSlider.row { justify-content: center; }
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-2xl;
+    margin-bottom: $spacing-3xl;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+    }
+  }
+
+  .resource-card {
+    transition: all $transition-normal;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-xl;
+      border-color: $primary-color;
+
+      .resource-cta {
+        color: $primary-color;
+
+        span { transform: translateX(4px); }
+      }
+    }
+
+    @media (max-width: $breakpoint-md) { padding: $spacing-xl; }
+  }
+
+  .resource-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      color: $text-dark;
+      margin-bottom: $spacing-md;
+      line-height: $line-height-tight;
+    }
+
+    p {
+      color: $text-medium;
+      line-height: $line-height-relaxed;
+      margin-bottom: $spacing-lg;
+      flex-grow: 1;
+    }
+
+    .resource-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $spacing-lg;
+      padding-top: $spacing-md;
+      border-top: 1px solid $border-light;
+
+      .resource-type {
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        color: $primary-color;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .resource-downloads { font-size: $font-size-xs; color: $text-light; }
+    }
+
+    .resource-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-sm;
+      color: $text-dark;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      font-size: $font-size-base;
+      transition: all $transition-fast;
+
+      span { transition: transform $transition-fast; font-size: $font-size-lg; }
+
+      &:hover { color: $primary-color; }
+    }
+  }
+
+  .resources-cta {
+    text-align: center;
+
+    .btn-outline {
+      background: transparent;
+      color: $text-dark;
+      border: 2px solid $border-medium;
+      padding: $spacing-md $spacing-xl;
+      font-weight: $font-weight-medium;
+
+      &:hover {
+        background: $text-dark;
+        color: $bg-white;
+        border-color: $text-dark;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// TEXT SLIDER ANIMATION
+// =============================================================================
+// Unified typography for static + animated parts
+/* Wrap heading container */
+#textSlider .resources-heading {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+  margin: 0; // override base bottom margin for tighter layout
+}
+
+/* Animated part inside h2 */
+#textSlider .resources-heading .slideCol {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  line-height: inherit;
+  height: $line-height-tight * 1.5em;
+  white-space: nowrap;
+}
+
+#textSlider .resources-heading .scroller { position: relative; height: 100%; overflow: hidden; }
+
+#textSlider .resources-heading .inner {
+  display: flex;
+  flex-direction: column;
+  animation: scroll 9s cubic-bezier(.65,.05,.36,1) infinite;
+  will-change: transform;
+}
+
+#textSlider .resources-heading .inner > span {
+  display: block;
+  height: $line-height-tight * 2em; // fixed per line
+  line-height: $line-height-tight * 1.5em;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes scroll {
+  0%, 12%   { transform: translateY(0); }
+  20%, 45%  { transform: translateY(-33.333%); }
+  53%, 78%  { transform: translateY(-66.666%); }
+  86%, 100% { transform: translateY(0); }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: $breakpoint-sm) {
+  .resources-modern {
+    .section-header {
+      margin-bottom: $spacing-3xl;
+    }
+
+    .resources-grid {
+      margin-bottom: $spacing-2xl;
+    }
+  }
+}
